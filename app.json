@@ -1,0 +1,10 @@
+{
+  "expo": {
+    "name": "crud-list",
+    "slug": "crud-list",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
