@@ -13,22 +13,18 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Task">
-        <Stack.Screen
-          name="Task"
-          component={Task}
-          options={{ headerTintColor: "#f92e6a" }}
-        />
-        <Stack.Screen
-          name="NewTask"
-          component={NewTask}
-          options={{ headerTintColor: "#f92e6a" }}
-        />
-        <Stack.Screen
-          name="Details"
-          component={Details}
-          options={{ headerTintColor: "#f92e6a" }}
-        />
+        <Stack.Group
+          screenOptions={{
+            headerStyle: { backgroundColor: "#222" },
+            headerTintColor: "#fff",
+          }}
+        >
+          <Stack.Screen name="Task" component={Task} />
+          <Stack.Screen name="NewTask" component={NewTask} />
+          <Stack.Screen name="Details" component={Details} />
+        </Stack.Group>
       </Stack.Navigator>
+      <StatusBar style="light" />
     </NavigationContainer>
   );
 }
