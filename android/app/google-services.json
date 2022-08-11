@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "383179880849",
+    "project_id": "crud-app-bbb8f",
+    "storage_bucket": "crud-app-bbb8f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:383179880849:android:a72ea625197d2c46ab4230",
+        "android_client_info": {
+          "package_name": "com.hericmendez.crud_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "383179880849-ie58614gsqj7gd51cvu68kpp1rol0f3c.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA94O4kxkok9GC-qlmhRThQdKPAkTbX1Fg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "383179880849-ie58614gsqj7gd51cvu68kpp1rol0f3c.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
