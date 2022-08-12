@@ -19,9 +19,9 @@ export default function App() {
             headerTintColor: "#fff",
           }}
         >
-          <Stack.Screen name="Task" component={Task} />
-          <Stack.Screen name="NewTask" component={NewTask} />
-          <Stack.Screen name="Details" component={Details} />
+          <Stack.Screen name="My Checklist" component={Task} />
+          <Stack.Screen name="Nova Tarefa" component={NewTask} />
+          <Stack.Screen name="Detalhes" component={Details} />
         </Stack.Group>
       </Stack.Navigator>
       <StatusBar style="light" />
