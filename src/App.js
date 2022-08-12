@@ -29,12 +29,4 @@ export default function App() {
   );
 }
 
-/* const appStyles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-});
- */
+//Parei aqui: https://www.youtube.com/watch?v=0AM6AXlFwxM&t=5000s
