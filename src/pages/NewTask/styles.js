@@ -23,7 +23,18 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
     borderBottomColor: "#f92e6a",
   },
-
+  largeInput: {
+    width: "90%",
+    textAlignVertical: "top",
+    marginLeft: "auto",
+    marginRight: "auto",
+    padding: 10,
+    height: "auto",
+    minHeight: 50,
+    borderBottomWidth: 1,
+    borderBottomColor: "#f92e6a",
+    overflowVertical: "visible",
+  },
   buttonNewTask: {
     width: 60,
     height: 60,
@@ -39,7 +50,7 @@ const styles = StyleSheet.create({
   iconButton: {
     color: "#fff",
     fontSize: 16,
-    fontWeight:'bold',
+    fontWeight: "bold",
     marginBottom: 5,
   },
 });

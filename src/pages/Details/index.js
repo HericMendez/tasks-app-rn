@@ -5,9 +5,9 @@ import database from "../../config/firebaseconfig";
 import styles from "./styles";
 
 const Details = ({ navigation, route }) => {
-  const [titleEdit, setTitleEdit] = useState(route.params.title);
+  const [titleEdit, setTitleEdit] = useState(route.params.name);
   const [descriptionEdit, setDescriptionEdit] = useState(
-    route.params.description
+    route.params.desc
   );
 
   const idTask = route.params.id;

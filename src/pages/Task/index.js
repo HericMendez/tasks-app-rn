@@ -1,38 +1,34 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import database from "../../config/firebaseconfig";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
 import styles from "./styles";
-import {
-  View,
-  Text,
-  SafeAreaView,
-  StyleSheet,
-  TouchableOpacity,
-  FlatList,
-} from "react-native";
-
+import { View, Text, TouchableOpacity, FlatList } from "react-native";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 const Task = ({ navigation }) => {
-  const [task, setTask] = useState([]);
+  const [tasks, setTasks] = useState([]);
 
-  const deleteTask = (id) => {
-    database.collection("Tasks").doc(id).delete();
-  };
+  const getData = useCallback(async () => {
+    const list = [];
+    const keys = await AsyncStorage.getAllKeys();
+    const result = await AsyncStorage.multiGet(keys);
+    result.forEach((item) => {
+      item.shift();
+      const parsedJson = JSON.parse(item);
+      list.push(parsedJson);
+    });
+    setTasks(list);
+  }, []);
 
   useEffect(() => {
-    database.collection("Tasks").onSnapshot((query) => {
-      const list = [];
-      query.forEach((doc) => {
-        list.push({ ...doc.data(), id: doc.id });
-      });
-      setTask(list);
-    });
-  }, []);
-  //console.log(task);
+    getData();
+  }, [getData]);
+
+  console.log(tasks);
   return (
     <View style={styles.container}>
       <FlatList
         showsVerticalScrollIndicator={false}
-        data={task}
+        data={tasks}
         renderItem={({ item }) => {
           return (
             <View style={styles.Tasks}>
@@ -42,10 +38,6 @@ const Task = ({ navigation }) => {
                   size={40}
                   onPress={() => {
                     item.status = !item.status;
-                    database
-                      .collection("Tasks")
-                      .doc(item.id)
-                      .update({ status: item.status });
                   }}
                   color={item.status ? "#228c22" : "#7f7f7f"}
                 ></FontAwesome>
@@ -55,32 +47,31 @@ const Task = ({ navigation }) => {
                 onPress={() => {
                   navigation.navigate("Detalhes", {
                     id: item.id,
-                    title: item.title,
-                    description: item.description,
+                    name: item.name,
+                    desc: item.desc,
                     status: item.status,
                   });
                 }}
               >
                 <Text style={styles.titleTask}>
                   {
-                    /* item.title.length > 50
-                    ? item.title.substring(0, 50) + "... "
-                    :  */ item.title
+                    /* item.name.length > 50
+                    ? item.name.substring(0, 50) + "... "
+                    :  */ item.name
                   }
                 </Text>
                 <Text style={styles.descriptionTask}>
-                  {
-                     item.description.length > 50
-                    ? item.description.substring(0, 50) + "... "
-                    :  item.description
-                  }
+                  {item.desc.length > 50
+                    ? item.desc.substring(0, 50) + "... "
+                    : item.desc}
                 </Text>
               </TouchableOpacity>
 
               <TouchableOpacity
                 style={styles.deleteIcon}
                 onPress={() => {
-                  deleteTask(item.id);
+                  AsyncStorage.removeItem(item.id);
+                  console.log(item)
                 }}
               >
                 <FontAwesome

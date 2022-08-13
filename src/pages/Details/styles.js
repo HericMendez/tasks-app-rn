@@ -20,7 +20,7 @@ const styles = StyleSheet.create({
     marginLeft: "auto",
     marginRight: "auto",
     padding: 10,
-    height:50,
+    height: 50,
     borderBottomWidth: 1,
     borderBottomColor: "#f92e6a",
   },
@@ -31,12 +31,11 @@ const styles = StyleSheet.create({
     marginLeft: "auto",
     marginRight: "auto",
     padding: 10,
-
     height: "auto",
-    minHeight:50,
+    minHeight: 50,
     borderBottomWidth: 1,
     borderBottomColor: "#f92e6a",
-    overflowVertical: "visible"
+
   },
 
   buttonNewTask: {
