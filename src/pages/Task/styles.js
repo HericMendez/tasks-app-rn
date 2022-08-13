@@ -10,7 +10,7 @@ const styles = StyleSheet.create({
   Tasks: {
     width: "90%",
     flexDirection: "row",
-    justifyContent: "space-around",
+    justifyContent: "space-between",
     alignItems: "center",
     marginVertical: 15,
     marginLeft: "auto",
@@ -20,18 +20,21 @@ const styles = StyleSheet.create({
     borderRadius: 10,
   },
 
-  deleteTask: {
+  taskIcon: {
     justifyContent: "center",
-    paddingLeft: 15,
+
+    paddingHorizontal: 25,
+    marginHorizontal:30
   },
 
   descriptionArea: {
     flexDirection: "column",
+    justifyContent:"flex-start",
     width: "80%",
   },
 
   titleTask: {
-    width: "70%",
+    width: "80%",
     alignContent: "flex-start",
     paddingHorizontal: 20,
     fontSize: 18,
@@ -51,8 +54,8 @@ const styles = StyleSheet.create({
   },
 
   buttonNewTask: {
-    width: 50,
-    height: 50,
+    width: 60,
+    height: 60,
     position: "absolute",
     bottom: 30,
     left: 20,

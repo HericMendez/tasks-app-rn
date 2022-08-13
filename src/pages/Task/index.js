@@ -27,7 +27,7 @@ const Task = ({ navigation }) => {
       setTask(list);
     });
   }, []);
-  console.log(task);
+  //console.log(task);
   return (
     <View style={styles.container}>
       <FlatList
@@ -36,12 +36,16 @@ const Task = ({ navigation }) => {
         renderItem={({ item }) => {
           return (
             <View style={styles.Tasks}>
-              <TouchableOpacity style={styles.deleteTasks}>
+              <TouchableOpacity style={styles.checkIcon}>
                 <FontAwesome
                   name="check"
-                  size={23}
+                  size={40}
                   onPress={() => {
                     item.status = !item.status;
+                    database
+                      .collection("Tasks")
+                      .doc(item.id)
+                      .update({ status: item.status });
                   }}
                   color={item.status ? "#228c22" : "#7f7f7f"}
                 ></FontAwesome>
@@ -53,36 +57,35 @@ const Task = ({ navigation }) => {
                     id: item.id,
                     title: item.title,
                     description: item.description,
+                    status: item.status,
                   });
                 }}
               >
                 <Text style={styles.titleTask}>
-
-                  {item.title.length > 50
+                  {
+                    /* item.title.length > 50
                     ? item.title.substring(0, 50) + "... "
-                    : item.title}
+                    :  */ item.title
+                  }
                 </Text>
                 <Text style={styles.descriptionTask}>
-                  {item.description.length > 80
-                    ? item.description.substring(0, 77) + "... "
-                    : item.description}
+                  {
+                     item.description.length > 50
+                    ? item.description.substring(0, 50) + "... "
+                    :  item.description
+                  }
                 </Text>
               </TouchableOpacity>
+
               <TouchableOpacity
-                style={styles.deleteTasks}
-                onPress={() => {
-                  deleteTask(item.id);
-                }}
-              ></TouchableOpacity>
-              <TouchableOpacity
-                style={styles.deleteTasks}
+                style={styles.deleteIcon}
                 onPress={() => {
                   deleteTask(item.id);
                 }}
               >
                 <FontAwesome
                   name="trash"
-                  size={23}
+                  size={30}
                   color="#f92e6a"
                 ></FontAwesome>
               </TouchableOpacity>

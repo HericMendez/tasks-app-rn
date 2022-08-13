@@ -25,8 +25,8 @@ const styles = StyleSheet.create({
   },
 
   buttonNewTask: {
-    width: 50,
-    height: 50,
+    width: 60,
+    height: 60,
     position: "absolute",
     bottom: 30,
     left: 20,
@@ -39,6 +39,7 @@ const styles = StyleSheet.create({
   iconButton: {
     color: "#fff",
     fontSize: 16,
+    fontWeight:'bold',
     marginBottom: 5,
   },
 });
